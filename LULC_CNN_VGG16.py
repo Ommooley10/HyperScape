@@ -1,53 +1,33 @@
-import tensorflow as tf
-from tensorflow.keras import layers, models
 from tensorflow.keras.applications import VGG16
+from tensorflow.keras.models import Model
+from tensorflow.keras.layers import GlobalAveragePooling2D, Dense, Dropout
+from tensorflow.keras.optimizers import Adam
+import os
 
-class LULC_VGG16:
-    def __init__(self, input_shape, n_classes, learning_rate=0.001, dropout_rate=0.3, epochs=50, batch_size=16):
-        self.input_shape = input_shape
-        self.n_classes = n_classes
-        self.learning_rate = learning_rate
-        self.dropout_rate = dropout_rate
-        self.epochs = epochs
-        self.batch_size = batch_size
+# Create directory for saving the best model
+os.makedirs("checkpoints", exist_ok=True)
 
-        # Input Layer
-        inputs = layers.Input(shape=self.input_shape)
+# Load VGG16 with pre-trained ImageNet weights
+base_model = VGG16(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
 
-        # Convert 50 spectral bands → 3 channels using a 1x1 Conv Layer
-        x = layers.Conv2D(3, (1, 1), activation='relu')(inputs)
+# Freeze base model layers to retain learned features
+for layer in base_model.layers:
+    layer.trainable = False
 
-        # Load VGG16 with pre-trained ImageNet weights (excluding top layers)
-        base_model = VGG16(weights="imagenet", include_top=False, input_shape=(input_shape[0], input_shape[1], 3))
-        base_model.trainable = False  # Freeze initial layers
+# Add custom classification head
+x = base_model.output
+x = GlobalAveragePooling2D()(x)
+x = Dropout(0.5)(x)
+x = Dense(256, activation='relu')(x)
+x = Dropout(0.3)(x)
+output = Dense(17, activation='softmax')(x)
 
-        # Pass transformed input through VGG16
-        x = base_model(x, training=False)
+# Final model
+model = Model(inputs=base_model.input, outputs=output)
 
-        # Flatten and add custom classification layers
-        x = layers.Flatten()(x)
-        x = layers.Dense(1024, activation='relu')(x)
-        x = layers.Dropout(self.dropout_rate)(x)
-        outputs = layers.Dense(self.n_classes, activation='softmax')(x)
+# Compile the model
+model.compile(optimizer=Adam(learning_rate=1e-4),
+              loss='categorical_crossentropy',
+              metrics=['accuracy'])
 
-        # Define the model
-        self.model = models.Model(inputs=inputs, outputs=outputs)
-
-        # Compile the model
-        self.model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=self.learning_rate),
-                           loss='categorical_crossentropy',
-                           metrics=['accuracy'])
-
-    def fit(self, X_train, y_train, X_val=None, y_val=None, callbacks=None):
-        return self.model.fit(X_train, y_train, validation_data=(X_val, y_val),
-                              epochs=self.epochs, batch_size=self.batch_size,
-                              verbose=1, callbacks=callbacks)
-
-    def predict(self, X_test):
-        return self.model.predict(X_test)
-
-    def save_model(self, path):
-        self.model.save(path)
-
-    def load_model(self, path):
-        self.model = tf.keras.models.load_model(path)
+model.summary()
