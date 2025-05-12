@@ -1,4 +1,3 @@
-# preprocessing_3dcnn.py
 import numpy as np
 import rasterio
 import pickle
