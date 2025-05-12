@@ -1,5 +1,3 @@
-# train_3dcnn.py
-
 import tensorflow as tf
 from tensorflow.keras import layers, models
 from preprocess_3dcnn import data  # assuming both scripts are in the same folder
