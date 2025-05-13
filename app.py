@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 from tensorflow.keras.models import load_model
 
 # Load class mappings
-indian_class_df = pd.read_csv("/content/drive/MyDrive/land-cover-classification-master/data/AVIRIS_IndianPine_Site3_classes.csv")
+indian_class_df = pd.read_csv("dataset/AVIRIS_IndianPine_Site3_classes.csv")
 indian_class_mapping = {row['class'] - 1: row['class_name'] for _, row in indian_class_df.iterrows() if row['class'] != 0}
 salinas_class_mapping = {
     0: "Broccoli", 1: "Broccoli_Raab", 2: "Celery", 3: "Corn", 4: "Cotton",
@@ -17,33 +17,33 @@ salinas_class_mapping = {
 }
 
 # Load models
-model_2d = load_model("/content/drive/MyDrive/land-cover-classification-master/Models/2D CNN/2D_CNN_final_model.h5")
-model_3d = load_model("/content/drive/MyDrive/land-cover-classification-master/Models/3D CNN/3d_CNN_updated.h5")
-model_salinas = load_model("/content/drive/MyDrive/land-cover-classification-master/Models/3D CNN/3d_CNN_fine_tuned_salinas.h5")
+model_2d = load_model("Models/2D CNN/2D_CNN_final_model.h5")
+model_3d = load_model("Models/3D CNN/3D_CNN_updated.h5")
+model_salinas = load_model("Models/3D CNN/3d_CNN_fine_tuned_salinas.h5")
 
 # Load Indian Pines test data
-with open("/content/drive/MyDrive/land-cover-classification-master/test_data.pkl", "rb") as f:
+with open("Test data/2D CNN/test_data.pkl", "rb") as f:
     X_test_2d, y_test_2d = pickle.load(f)
-with open("/content/drive/MyDrive/land-cover-classification-master/test_coords.pkl", "rb") as f:
+with open("Test data/2D CNN/test_coords.pkl", "rb") as f:
     coords_2d = pickle.load(f)
 
-with open("/content/drive/MyDrive/land-cover-classification-master/test_data_3d_updated.pkl", "rb") as f:
+with open("Test data/3D CNN/test_data_3d_updated.pkl", "rb") as f:
     X_test_3d, y_test_3d = pickle.load(f)
-with open("/content/drive/MyDrive/land-cover-classification-master/test_coords_3d_updated.pkl", "rb") as f:
+with open("Test data/3D CNN/test_coords_3d_updated.pkl", "rb") as f:
     coords_3d = pickle.load(f)
 
 # Load Salinas test data (uploaded to /mnt/data/)
-with open("/content/drive/MyDrive/land-cover-classification-master/test_data_3d_salinas.pkl", "rb") as f:
+with open("Test data/3D CNN/test_data_3d_salinas.pkl", "rb") as f:
     X_test_salinas, y_test_salinas = pickle.load(f)
-with open("/content/drive/MyDrive/land-cover-classification-master/test_coords_3d_salinas.pkl", "rb") as f:
+with open("Test data/3D CNN/test_coords_3d_salinas.pkl", "rb") as f:
     coords_salinas = pickle.load(f)
 
 # Load Indian Pines full RGB image
-full_rgb = cv2.imread("/content/drive/MyDrive/land-cover-classification-master/data/indian_pines_rgb_clean.png")
+full_rgb = cv2.imread("dataset/indian_pines_rgb_clean.png")
 full_rgb = cv2.cvtColor(full_rgb, cv2.COLOR_BGR2RGB)
 
 # Load Salinas-A full RGB image
-salinas_rgb = cv2.imread("/content/drive/MyDrive/land-cover-classification-master/data/salinasA_rgb.png")
+salinas_rgb = cv2.imread("dataset/salinasA_rgb.png")
 salinas_rgb = cv2.cvtColor(salinas_rgb, cv2.COLOR_BGR2RGB)
 
 # Utility functions
