@@ -17,25 +17,25 @@ salinas_class_mapping = {
 }
 
 # Load models
-model_2d = load_model("Models/2D CNN/2D_CNN_final_model.h5")
-model_3d = load_model("Models/3D CNN/3D_CNN_updated.h5")
-model_salinas = load_model("Models/3D CNN/3d_CNN_fine_tuned_salinas.h5")
+model_2d = load_model("Models/2D_CNN/2D_CNN_final_model.h5")
+model_3d = load_model("Models/3D_CNN/3d_CNN_updated.h5")
+model_salinas = load_model("Models/3D_CNN/3d_CNN_fine_tuned_salinas.h5")
 
 # Load Indian Pines test data
-with open("Test data/2D CNN/test_data.pkl", "rb") as f:
+with open("Test_data/2D_CNN/test_data.pkl", "rb") as f:
     X_test_2d, y_test_2d = pickle.load(f)
-with open("Test data/2D CNN/test_coords.pkl", "rb") as f:
+with open("Test_data/2D_CNN/test_coords.pkl", "rb") as f:
     coords_2d = pickle.load(f)
 
-with open("Test data/3D CNN/test_data_3d_updated.pkl", "rb") as f:
+with open("Test_data/3D_CNN/test_data_3d_updated.pkl", "rb") as f:
     X_test_3d, y_test_3d = pickle.load(f)
-with open("Test data/3D CNN/test_coords_3d_updated.pkl", "rb") as f:
+with open("Test_data/3D_CNN/test_coords_3d_updated.pkl", "rb") as f:
     coords_3d = pickle.load(f)
 
 # Load Salinas test data (uploaded to /mnt/data/)
-with open("Test data/3D CNN/test_data_3d_salinas.pkl", "rb") as f:
+with open("Test_data/3D_CNN/test_data_3d_salinas.pkl", "rb") as f:
     X_test_salinas, y_test_salinas = pickle.load(f)
-with open("Test data/3D CNN/test_coords_3d_salinas.pkl", "rb") as f:
+with open("Test_data/3D_CNN/test_coords_3d_salinas.pkl", "rb") as f:
     coords_salinas = pickle.load(f)
 
 # Load Indian Pines full RGB image
