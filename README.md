@@ -90,9 +90,9 @@ Both datasets were captured by the **AVIRIS** sensor.
 
 ## 🤝 Contributors
 
-- [@Ommooley10](https://github.com/Ommooley10) 
+- [Ommooley10](https://github.com/Ommooley10) 
 - [Vaishnavi Paswan](https://github.com/vaishnavipaswan)
-- Vedika Agrawal  
+- [Vedika Agrawal](https://github.com/vedikagrawal)  
 - Laxmikant Dubey
 
 ---
