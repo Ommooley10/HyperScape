@@ -1,17 +1,3 @@
----
-title: HyperScape
-emoji: 📚
-colorFrom: indigo
-colorTo: indigo
-sdk: gradio
-sdk_version: 5.29.0
-app_file: app.py
-pinned: false
-license: mit
-short_description: 'Hyperspectral image crop classification using 2D and 3D CNN '
----
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
 # HyperScape 🚀  
 **Hyperspectral Image Classification using Deep Learning**
 
@@ -94,6 +80,25 @@ Both datasets were captured by the **AVIRIS** sensor.
 | 3D CNN     | **\~95%**               | **\~96–97%**         | Best spatial-spectral model |
 
 ---
+
+## Deployment
+
+---
+title: HyperScape
+emoji: 📚
+colorFrom: indigo
+colorTo: indigo
+sdk: gradio
+sdk_version: 5.29.0
+app_file: app.py
+pinned: false
+license: mit
+short_description: 'Hyperspectral image crop classification using 2D and 3D CNN '
+
+---
+
+Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
+
 ## 🔭 Future Work
 
 - ✅ Feature fusion: Combine 2D and 3D features for robust classification  
