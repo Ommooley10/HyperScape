@@ -83,21 +83,47 @@ Both datasets were captured by the **AVIRIS** sensor.
 
 ## Deployment
 
----
-title: HyperScape
-emoji: 📚
-colorFrom: indigo
-colorTo: indigo
-sdk: gradio
-sdk_version: 5.29.0
-app_file: app.py
-pinned: false
-license: mit
-short_description: 'Hyperspectral image crop classification using 2D and 3D CNN '
+This project is deployed on **Hugging Face Spaces** using **Gradio** as the frontend framework.
+
+### 🔗 Live App
+
+👉 [Click here to launch HyperScape](https://huggingface.co/spaces/Ommooley10/HyperScape)
+
+### 📁 Files in Deployment
+
+- `app.py` – Main Python script containing the Gradio interface and model inference logic.
+- `requirements.txt` – Lists all required Python dependencies.
+- `models/` – Pretrained 2D and 3D CNN models (e.g., for Indian Pines, Salinas-A).
+- `test_data.pkl` / `test_coords.pkl` – Test set data and coordinate points.
+- `utils/` – Helper scripts for preprocessing, visualization, and prediction.
+
+### Tech Stack
+
+- **Frontend**: Gradio
+- **Backend**: Python (TensorFlow/Keras, NumPy, SciPy, OpenCV, Matplotlib)
+- **Platform**: Hugging Face Spaces
+
+### How to Deploy on Hugging Face Spaces
+
+To deploy this app on your own Hugging Face Space:
+
+1. Create a new Space at [huggingface.co/spaces](https://huggingface.co/spaces).
+2. Choose **Gradio** as the SDK.
+3. Upload the following files to your Space:
+   - `app.py`
+   - `requirements.txt`
+   - Any model/data files your app depends on
+4. Click **"Commit"** and the app will build and launch automatically.
+
+Once deployed, the app will be accessible via a public URL and automatically re-run on any code or file updates.
+
+### Status
+
+-  Public and live
+-  Supports multiple datasets and models
+-  Provides real-time predictions and visualization
 
 ---
-
-Check out the configuration reference at https://huggingface.co/docs/hub/spaces-config-reference
 
 ## 🔭 Future Work
 
