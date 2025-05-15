@@ -93,8 +93,9 @@ This project is deployed on **Hugging Face Spaces** using **Gradio** as the fron
 
 - `app.py` – Main Python script containing the Gradio interface and model inference logic.
 - `requirements.txt` – Lists all required Python dependencies.
-- `models/` – Pretrained 2D and 3D CNN models (e.g., for Indian Pines, Salinas-A).
-- `test_data.pkl` / `test_coords.pkl` – Test set data and coordinate points.
+- `Models/` – Pretrained 2D and 3D CNN models (e.g., for Indian Pines, Salinas-A).
+- `dataset/`- Containing the datasets and their respective RGB images.
+- `Test_data/` – Test set data and coordinate points.
 - `utils/` – Helper scripts for preprocessing, visualization, and prediction.
 
 ### Tech Stack
