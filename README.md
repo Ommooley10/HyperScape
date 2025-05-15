@@ -73,6 +73,13 @@ Both datasets were captured by the **AVIRIS** sensor.
 
 ---
 
+| Model      | Accuracy (Indian Pines) | Accuracy (Salinas-A) | Notes                       |
+| ---------- | ----------------------- | -------------------- | --------------------------- |
+| 2D CNN     | \~93%                   | N/A                  | Good baseline performance   |
+| VGG16 (TL) | \~90%                   | N/A                  | Fast training, PCA required |
+| 3D CNN     | **\~95%**               | **\~96–97%**         | Best spatial-spectral model |
+
+---
 ## 🔭 Future Work
 
 - ✅ Feature fusion: Combine 2D and 3D features for robust classification  
@@ -84,7 +91,7 @@ Both datasets were captured by the **AVIRIS** sensor.
 ## 🤝 Contributors
 
 - [@Ommooley10](https://github.com/Ommooley10) *(Project Lead)*  
-- Vaishnavi Paswan  
+- [Vaishnavi Paswan](https://github.com/vaishnavipaswan)
 - Vedika Agrawal  
 - Laxmikant Dubey
 
