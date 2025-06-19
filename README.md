@@ -7,13 +7,13 @@ HyperScape is a deep learning-based project that focuses on classifying hyperspe
 
 ## 📌 Features
 
-- ✅ Custom-built 2D CNN architecture  
-- ✅ Transfer learning with VGG16 using PCA-reduced HSI data  
-- ✅ 3D CNN for volumetric spectral-spatial analysis  
-- ✅ Preprocessing techniques: Band selection, patch extraction, normalization, PCA  
-- ✅ Evaluation on Indian Pines; generalization tested on Salinas-A dataset  
-- ✅ EarlyStopping and learning rate scheduling for stable training  
-- ✅ H5 model and pickle file saving for future inference
+-  Custom-built 2D CNN architecture  
+-  Transfer learning with VGG16 using PCA-reduced HSI data  
+-  3D CNN for volumetric spectral-spatial analysis  
+-  Preprocessing techniques: Band selection, patch extraction, normalization, PCA  
+-  Evaluation on Indian Pines; generalization tested on Salinas-A dataset  
+-  EarlyStopping and learning rate scheduling for stable training  
+-  H5 model and pickle file saving for future inference
 
 ---
 
@@ -151,5 +151,6 @@ This project is open-source under the [MIT License](LICENSE).
 
 ## 📬 Contact
 
+Suggestions and improvements are welcome!! 🙂
 For queries, suggestions, or collaborations, feel free to reach out via GitHub Issues or email.
 
